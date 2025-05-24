@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+  pre_build:
+    commands:
+      - VERSION=$(grep "projectVersion" gradle.properties | awk -F'=' '{print $2}' | tr -d ' ')
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo "Project Version -> $VERSION"
+      - gradle test
+      - gradle build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - sam package --s3-bucket volhakrypulevichbucket --template-file template.yml --output-template-file outputTemplate.yml
+      - ls -la build/libs
+artifacts:
+  files:
+    - build/libs/volhakrypulevich-$VERSION.jar
+    - outputTemplate.yml
