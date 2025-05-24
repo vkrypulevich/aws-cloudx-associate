@@ -9,11 +9,6 @@ repositories {
 }
 
 dependencies {
-    //Lombok
-    compileOnly "org.projectlombok:lombok:${lombokVersion}"
-    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-    // in annotationProcessorPaths Lombok tag is BEFORE the Mapstruct!
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
