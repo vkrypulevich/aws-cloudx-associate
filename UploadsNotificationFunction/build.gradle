@@ -9,21 +9,10 @@ repositories {
 }
 
 dependencies {
-    implementation "com.amazonaws:aws-java-sdk-s3:${awsSdkVersion}" //s3
-    implementation "com.amazonaws:aws-java-sdk-sns:${awsSdkVersion}" //sns
-    implementation "com.amazonaws:aws-java-sdk-sqs:${awsSdkVersion}" //sqs
-    implementation "com.amazonaws:aws-java-sdk-lambda:${awsSdkVersion}" //lambda
-
-
     //Lombok
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     // in annotationProcessorPaths Lombok tag is BEFORE the Mapstruct!
-
-    //Mapstruct
-    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-    implementation "org.mapstruct:mapstruct-processor:${mapstructVersion}"
-    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
