@@ -1,0 +1,12 @@
+{
+    "name": "aws-rds-node-js",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "@aws-sdk/client-sns": "^3.806.0",
+        "@aws-sdk/client-sqs": "^3.806.0",
+        "aws-sdk": "^2.1692.0",
+        "dotenv": "^16.5.0"
+    }
+}
