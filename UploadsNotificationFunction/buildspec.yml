@@ -6,6 +6,7 @@ phases:
       nodejs: 20
   pre_build:
     commands:
+      - cd UploadsNotificationFunction
       - VERSION=$(grep "projectVersion" gradle.properties | awk -F'=' '{print $2}' | tr -d ' ')
       - npm install
   build:
