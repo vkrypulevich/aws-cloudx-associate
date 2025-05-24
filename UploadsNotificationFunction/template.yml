@@ -11,8 +11,7 @@ Resources:
   Function:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: scripts/
-      Handler: app.lambdaHandler
+      Handler: index.handler
       Runtime: nodejs20.x
       Architectures:
         - x86_64
