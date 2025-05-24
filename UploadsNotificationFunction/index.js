@@ -1,11 +1,9 @@
-import { SQSClient, DeleteMessageCommand } from '@aws-sdk/client-sqs';
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
 
-const sqs = new SQSClient({ region: process.env.AWS_REGION });
-const sns = new SNSClient({ region: process.env.AWS_REGION });
+const SNS_TOPIC_ARN = "arn:aws:sns:eu-west-1:442042506417:VK-UploadsNotificationTopic";
+const AWS_REGION = "eu-west-1";
 
-const SNS_TOPIC_ARN = process.env.SNS_TOPIC_ARN;
-const SQS_QUEUE_URL = process.env.SQS_QUEUE_URL;
+const sns = new SNSClient({ region: AWS_REGION });
 
 export async function handler(event) {
     console.log('Received event:', JSON.stringify(event, null, 2));
@@ -19,11 +17,6 @@ export async function handler(event) {
 
             await sns.send(snsParams);
             console.log("Message published to SNS:", message);
-
-            const sqsParams = new DeleteMessageCommand({
-                QueueUrl: SQS_QUEUE_URL,
-                ReceiptHandle: record.receiptHandle,
-            });
 
             await sqs.send(sqsParams);
             console.log(`Message deleted from SQS: ${record.messageId}`);
