@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.3
 
 phases:
   install:
@@ -17,6 +17,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - sam package --s3-bucket volhakrypulevichbucket --template-file template.yml --output-template-file outputTemplate.yml
+      - mv outputTemplate.yml ../outputTemplate.yml
 artifacts:
   files:
     - outputTemplate.yml
