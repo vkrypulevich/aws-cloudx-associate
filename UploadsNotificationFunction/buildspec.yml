@@ -17,7 +17,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - sam package --s3-bucket volhakrypulevichbucket --template-file template.yml --output-template-file outputTemplate.yml
-      - ls -la build/libs
 artifacts:
   files:
     - outputTemplate.yml
