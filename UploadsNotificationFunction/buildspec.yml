@@ -20,5 +20,4 @@ phases:
       - ls -la build/libs
 artifacts:
   files:
-    - build/libs/volhakrypulevich-$VERSION.jar
     - outputTemplate.yml
